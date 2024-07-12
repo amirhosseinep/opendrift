@@ -9,7 +9,7 @@ from opendrift.readers import reader_global_landmask
 from opendrift.readers import reader_netCDF_CF_generic
 from opendrift.models.leeway import Leeway
 
-o = Leeway(loglevel=50)  # Set loglevel to 0 for debug information
+o = Leeway(loglevel=20)  # Set loglevel to 0 for debug information
 
 #%%
 # Add readers for wind and current
@@ -34,10 +34,10 @@ o.run(duration=timedelta(hours=12), time_step=300, time_step_output=3600)
 #%%
 # Print and plot results
 print(o)
-#o.animation()
+o.animation()
 
 #%%
 # .. image:: /gallery/animations/example_fjord_0.gif
 
-#o.plot()
+o.plot()
 
