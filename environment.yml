@@ -1,4 +1,4 @@
-name: opendrift
+name: opendrift2
 channels:
   - conda-forge
 dependencies:
