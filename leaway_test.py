@@ -43,7 +43,7 @@ o.run(duration=timedelta(hours=24), time_step=300, time_step_output=300,outfile=
 #%%
 # Print and plot results
 print(o)
-
+o.export_ascii('drift_output.drift')
 #%%
 # Animation with current as background.
 # Note that drift is also depending on wind, which is not shown.
