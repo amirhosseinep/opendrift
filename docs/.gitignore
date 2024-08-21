@@ -2,3 +2,13 @@ build
 _autosummary
 source/autoapi
 source/gallery
+
+# Ignore all CSV files
+*.csv
+
+# Ignore all DRIFT files
+*.drift
+
+# Ignore all NetCDF files
+*.nc
+

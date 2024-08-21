@@ -1,1 +1,10 @@
 openoil.nc
+# Ignore all CSV files
+*.csv
+
+# Ignore all DRIFT files
+*.drift
+
+# Ignore all NetCDF files
+*.nc
+
