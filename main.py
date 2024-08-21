@@ -14,7 +14,7 @@ with Dataset(file_path, 'r') as nc:
     print("Variables in the file:")  
     for var in nc.variables:  
         print(var)
-#sys.exit()
+#sys.exit() 
 '''
 # Initiate a Leeway model  
 o = Leeway(loglevel=20)  
