@@ -1,0 +1,22 @@
+conda activate opendrift2
+
+Run test:
+python mytest.py
+
+Run open drift gui:
+cd opendrift/opendrift/scripts
+python opendrift_gui.py
+--------------------------
+conda activate opendrift2
+python leaway_test.py
+
+conda deactivate
+conda deactivate
+F8 - export_data.py
+--------
+conda activate opendrift2
+python main.py
+post-main-touch.py
+--------
+conda activate opendrift2
+python main_inputfile.py

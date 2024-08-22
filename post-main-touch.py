@@ -1,3 +1,6 @@
+'''
+Now integrated in main and main_inputfile
+'''
 import re  
 
 def process_file(input_file, output_file):  
