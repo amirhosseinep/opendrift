@@ -20,8 +20,6 @@ examples/oil3Dmixing.nc
 
 result_images
 
-# Ignore all CSV files
-*.csv
 
 # Ignore all DRIFT files
 *.drift
