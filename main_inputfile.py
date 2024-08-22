@@ -1,3 +1,9 @@
+'''
+wind and ocean current source:
+https://data.marine.copernicus.eu/product/WIND_GLO_PHY_L4_NRT_012_004/files?path=WIND_GLO_PHY_L4_NRT_012_004%2Fcmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H_202207%2F2024%2F07%2F&subdataset=cmems_obs-wind_glo_phy_nrt_l4_0.125deg_PT1H_202207
+https://data.marine.copernicus.eu/product/GLOBAL_ANALYSISFORECAST_PHY_001_024/files?path=GLOBAL_ANALYSISFORECAST_PHY_001_024%2Fcmems_mod_glo_phy_anfc_merged-uv_PT1H-i_202211%2F2024%2F07%2F&subdataset=cmems_mod_glo_phy_anfc_merged-uv_PT1H-i_202211
+'''
+
 import csv  
 from opendrift.readers import reader_netCDF_CF_generic  
 from opendrift.models.leeway import Leeway  
