@@ -12,10 +12,13 @@ import matplotlib.pyplot as plt
 import re  
 from netCDF4 import Dataset  
 import os  
-
-def run_leeway_simulation(name, ocean_file, wind_file, lon, lat, status_file):  
+#import logging
+def run_leeway_simulation(name, ocean_file, wind_file, lon, lat, status_file,obj_type):  
     try:   
-        o = Leeway(loglevel=20)   
+        # Set the logging level for all OpenDrift modules
+        #logging.getLogger('opendrift').setLevel(logging.ERROR)
+        o = Leeway(loglevel=20) #loglevel=20
+        #o.set_config('general:buffer', 10)   
         # Ocean model for current  
         reader_ocean = reader_netCDF_CF_generic.Reader(o.test_data_folder()+ocean_file)  
         # Wind data  
@@ -25,13 +28,13 @@ def run_leeway_simulation(name, ocean_file, wind_file, lon, lat, status_file):
 
         #print("\nRequired variables for the model:")  
         #print(o.required_variables)
-
+        print("Current Obj type we use: "+str(obj_type))
         seeding_time = max(reader_arome.start_time, reader_ocean.start_time)  
         print("Seeding time:", seeding_time)  
         oc = f"{reader_ocean.start_time} to {reader_ocean.end_time}"  
         wind = f"{reader_arome.start_time} to {reader_arome.end_time}"
         o.seed_elements(lon=lon, lat=lat, radius=100, number=5000,  
-                        time=seeding_time, object_type=26)    
+                        time=seeding_time, object_type=obj_type)    
         o.run(duration=timedelta(hours=20), time_step=300, time_step_output=300)  
         
         output_dir = os.path.join('drift-outputs', name)  
@@ -109,7 +112,8 @@ with open('input_parameters.csv', newline='') as csvfile:
         ocean_file = row['ocean_file']  
         wind_file = row['wind_file']
         lon = float(row['lon'])  
-        lat = float(row['lat'])  
+        lat = float(row['lat'])
+        obj_type = int(row['object_type'])
 
         # Run the model for this set of parameters  
-        run_leeway_simulation(name, ocean_file, wind_file, lon, lat, status_file)
+        run_leeway_simulation(name, ocean_file, wind_file, lon, lat, status_file, obj_type)

@@ -12,7 +12,7 @@ from netCDF4 import Dataset
 import re 
 '''
 # Replace with your actual file path  
-file_path = './tests/test_data/AmirDL/SMOC_20240101_R20240110.nc'  
+file_path = './tests/test_data/AmirDL/Data1/*.nc'  
 
 with Dataset(file_path, 'r') as nc:  
     print("Variables in the file:")  
@@ -22,14 +22,15 @@ with Dataset(file_path, 'r') as nc:
 '''
 # Initiate a Leeway model  
 o = Leeway(loglevel=20)  
-name = "CM5"
+object_type = 4
+name = "test1-obt4-BOAT-1"
 # Ocean model for current  
 reader_ocean = reader_netCDF_CF_generic.Reader(o.test_data_folder() +   
-    '/AmirDL/'+name+'/SMOC_20240105_R20240117.nc')  
+    '/AmirDL/Data1/*.nc')  
 
 # Wind data  
 reader_arome = reader_netCDF_CF_generic.Reader(o.test_data_folder() +
-    '/AmirDL/'+name+'/wind-20240105-/*.nc') 
+    '/AmirDL/Data1/wind/*.nc') 
 
 # Add readers to the model  
 o.add_reader([ reader_ocean, reader_arome])  
@@ -45,8 +46,8 @@ print("Ocean data time range:", reader_ocean.start_time, "to", reader_ocean.end_
 print("Wind data time range:", reader_arome.start_time, "to", reader_arome.end_time)
 #sys.exit()
 # Seed elements  
-o.seed_elements(lon=-11.21, lat=49.24, radius=100, number=5000,  
-                time=seeding_time, object_type=26)  
+o.seed_elements(lon=-47.2045, lat=49.17851, radius=100, number=5000,  
+                time=seeding_time, object_type=object_type)  
 
 # Run the model  
 o.run(duration=timedelta(hours=20), time_step=300, time_step_output=300)#, outfile='my_leeway_output.nc')  
