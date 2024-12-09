@@ -1,0 +1,3 @@
+"name","ocean_file","wind_file","lon","lat","object_type"
+"PIP1","AmirDL/Data6/*.nc","AmirDL/Data6/wind/*.nc",-56.340792,45.79697,4
+"PIP2","AmirDL/Data40/*.nc","AmirDL/Data40/wind/*.nc",-136.66,48.195496,15
